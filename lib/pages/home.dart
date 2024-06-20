@@ -40,6 +40,8 @@ class HomePage extends StatelessWidget {
             ),
             const SizedBox(height: 20),
             const MealGroup(),
+            const SizedBox(height: 20),
+            const MealGroup(),
           ],
         ),
       ),
@@ -63,18 +65,18 @@ class CalorieMeter extends StatelessWidget{
           );
         },
         child: Container(
-          // width: MediaQuery.of(context).size.width*0.43,
-          height: 150,
+          height: 160,
+          padding: EdgeInsets.symmetric(vertical: 15, horizontal: 15),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(20),
             border: Border.all(),
             // color: Colors.cyan,
           ),
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const SizedBox(height: 10),
               Container(
-                margin: const EdgeInsets.symmetric(horizontal: 10),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -91,9 +93,7 @@ class CalorieMeter extends StatelessWidget{
                   ],
                 ),
               ),
-              const SizedBox(height: 5),
               Container(
-                margin: const EdgeInsets.symmetric(horizontal: 10),
                 child: const Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
@@ -103,9 +103,7 @@ class CalorieMeter extends StatelessWidget{
                   ],
                 ),
               ),
-              const SizedBox(height: 5),
               Container(
-                margin: const EdgeInsets.symmetric(horizontal: 10),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
@@ -147,18 +145,18 @@ class WaterMeter extends StatelessWidget{
           );
         },
         child: Container(
-          // width: MediaQuery.of(context).size.width*0.43,
-          height: 150,
+          height: 160,
+          padding: EdgeInsets.symmetric(vertical: 15, horizontal: 15),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(20),
             border: Border.all(),
             // color: Colors.cyan,
           ),
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const SizedBox(height: 10),
               Container(
-                margin: const EdgeInsets.symmetric(horizontal: 10),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -175,9 +173,7 @@ class WaterMeter extends StatelessWidget{
                   ],
                 ),
               ),
-              const SizedBox(height: 5),
               Container(
-                margin: const EdgeInsets.symmetric(horizontal: 10),
                 child: const Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
@@ -187,9 +183,7 @@ class WaterMeter extends StatelessWidget{
                   ],
                 ),
               ),
-              const SizedBox(height: 5),
               Container(
-                margin: const EdgeInsets.symmetric(horizontal: 10),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [

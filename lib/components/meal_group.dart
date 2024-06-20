@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class MealGroup extends StatelessWidget{
   const MealGroup({super.key});
@@ -35,6 +36,9 @@ class MealGroup extends StatelessWidget{
                     // color: Colors.cyan,
                     shape: BoxShape.circle,
                   ),
+                  child: Center(
+                    child: FaIcon(FontAwesomeIcons.sun, size: 20),
+                  ),
                 ),
                 const SizedBox(width: 10),
                 const Column(
@@ -52,6 +56,9 @@ class MealGroup extends StatelessWidget{
                     border: Border.all(),
                     // color: Colors.cyan,
                     shape: BoxShape.circle,
+                  ),
+                  child: Center(
+                    child: FaIcon(FontAwesomeIcons.plus, size: 15),
                   ),
                 ),
               ],
@@ -89,6 +96,9 @@ class MealGroup extends StatelessWidget{
                     border: Border.all(),
                     // color: Colors.cyan,
                     shape: BoxShape.circle,
+                  ),
+                  child: Center(
+                    child: FaIcon(FontAwesomeIcons.pen, size: 15),
                   ),
                 ),
               ],

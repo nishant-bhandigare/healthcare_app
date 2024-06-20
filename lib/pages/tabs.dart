@@ -3,6 +3,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:healthcare_app/pages/activity_tracking.dart';
 import 'package:healthcare_app/pages/home.dart';
 import 'package:healthcare_app/pages/leaderboard.dart';
+import 'package:healthcare_app/pages/mental_health.dart';
 import 'package:healthcare_app/pages/workout.dart';
 
 class Tabs extends StatefulWidget {
@@ -62,8 +63,8 @@ class _TabsState extends State<Tabs> {
           BottomNavigationBarItem(
             icon: FaIcon(
               _selectedIndex == 2
-                  ? FontAwesomeIcons.solidChessKing
-                  : FontAwesomeIcons.chessKing,
+                  ? FontAwesomeIcons.rankingStar
+                  : FontAwesomeIcons.rankingStar,
             ),
             label: 'Favourites',
           ),
@@ -87,17 +88,6 @@ class _TabsState extends State<Tabs> {
         currentIndex: _selectedIndex,
         onTap: _onItemTapped,
       ),
-    );
-  }
-}
-
-class MentalHealth extends StatelessWidget {
-  const MentalHealth({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const Center(
-      child: Text('MentalHealth Page', style: TextStyle(fontSize: 24)),
     );
   }
 }
