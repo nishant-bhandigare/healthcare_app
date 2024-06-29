@@ -1,4 +1,5 @@
-import 'package:flutter/cupertino.dart';
+// ignore_for_file: avoid_unnecessary_containers
+
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -222,57 +223,49 @@ class FoodItem extends StatelessWidget{
                 FaIcon(FontAwesomeIcons.ellipsisVertical),
               ],
             ),
-            Container(
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Container(
-                    width: 8,
-                    height: 40,
-                    decoration: BoxDecoration(
-                      border: Border.all(),
-                      borderRadius: BorderRadius.circular(10),
-                    ),
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Container(
+                  width: 8,
+                  height: 40,
+                  decoration: BoxDecoration(
+                    border: Border.all(),
+                    borderRadius: BorderRadius.circular(10),
                   ),
-                  const SizedBox(width: 15),
-                  Container(
-                    child: const Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        Text("635", style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500)),
-                        Text("Calories")
-                      ],
-                    ),
-                  )
-                ],
-              ),
+                ),
+                const SizedBox(width: 15),
+                const Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Text("635", style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500)),
+                    Text("Calories")
+                  ],
+                )
+              ],
             ),
-            Container(
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Container(
-                    width: 8,
-                    height: 40,
-                    decoration: BoxDecoration(
-                      border: Border.all(),
-                      borderRadius: BorderRadius.circular(10),
-                    ),
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Container(
+                  width: 8,
+                  height: 40,
+                  decoration: BoxDecoration(
+                    border: Border.all(),
+                    borderRadius: BorderRadius.circular(10),
                   ),
-                  const SizedBox(width: 15),
-                  Container(
-                    child: const Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        Text("635", style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500)),
-                        Text("Calories")
-                      ],
-                    ),
-                  )
-                ],
-              ),
+                ),
+                const SizedBox(width: 15),
+                const Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Text("635", style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500)),
+                    Text("Calories")
+                  ],
+                )
+              ],
             ),
           ],
         ),

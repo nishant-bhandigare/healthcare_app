@@ -1,6 +1,12 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:healthcare_app/data/soundscape_data.dart';
+import 'package:healthcare_app/data/stories_data.dart';
+import 'package:healthcare_app/models/soundscape_model.dart';
+import 'package:healthcare_app/models/stories_model.dart';
+import 'package:hexcolor/hexcolor.dart';
+import 'package:lottie/lottie.dart';
 
 class MentalHealth extends StatelessWidget {
   const MentalHealth({super.key});
@@ -11,7 +17,7 @@ class MentalHealth extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const SizedBox(height: 50),
+          const SizedBox(height: 60),
           const Padding(
             padding: EdgeInsets.symmetric(horizontal: 20),
             child: Text("Welcome", style: TextStyle(fontSize: 15)),
@@ -44,21 +50,16 @@ class MentalHealth extends StatelessWidget {
               children: [
                 Container(
                   width: MediaQuery.of(context).size.width * 0.55,
-                  // height: MediaQuery.of(context).size.width * 0.55,
                   height: double.maxFinite,
                   decoration: BoxDecoration(
                     border: Border.all(),
+                    color: HexColor("#211951"),
                     borderRadius: BorderRadius.circular(20),
                   ),
-                  child: const Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      FaIcon(FontAwesomeIcons.leaf),
-                      Text("Meditation",
-                          style: TextStyle(
-                              fontSize: 15, fontWeight: FontWeight.w700)),
-                    ],
-                  ),
+                  child: Expanded(
+                      child: Lottie.asset(
+                          "assets/animations/Animation - 1719406109119.json",
+                          repeat: true)),
                 ),
                 Column(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -68,17 +69,13 @@ class MentalHealth extends StatelessWidget {
                         width: MediaQuery.of(context).size.width * 0.32,
                         decoration: BoxDecoration(
                           border: Border.all(),
+                          color: HexColor("#211951"),
                           borderRadius: BorderRadius.circular(20),
                         ),
-                        child: const Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            FaIcon(FontAwesomeIcons.moon),
-                            Text("Sleep",
-                                style: TextStyle(
-                                    fontSize: 15, fontWeight: FontWeight.w700)),
-                          ],
-                        ),
+                        child: Expanded(
+                            child: Lottie.asset(
+                                "assets/animations/polar-bear.json",
+                                repeat: true)),
                       ),
                     ),
                     const SizedBox(height: 10),
@@ -87,17 +84,13 @@ class MentalHealth extends StatelessWidget {
                         width: MediaQuery.of(context).size.width * 0.32,
                         decoration: BoxDecoration(
                           border: Border.all(),
+                          color: HexColor("#211951"),
                           borderRadius: BorderRadius.circular(20),
                         ),
-                        child: const Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            FaIcon(FontAwesomeIcons.music),
-                            Text("Music",
-                                style: TextStyle(
-                                    fontSize: 15, fontWeight: FontWeight.w700)),
-                          ],
-                        ),
+                        child: Expanded(
+                            child: Lottie.asset(
+                                "assets/animations/Animation - 1719407496679.json",
+                                repeat: true)),
                       ),
                     )
                   ],
@@ -112,9 +105,11 @@ class MentalHealth extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text("Podcasts",
-                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500)),
+                    style:
+                        TextStyle(fontSize: 18, fontWeight: FontWeight.w500)),
                 Text("See All",
-                    style: TextStyle(fontSize: 15, fontWeight: FontWeight.w500)),
+                    style:
+                        TextStyle(fontSize: 15, fontWeight: FontWeight.w500)),
               ],
             ),
           ),
@@ -128,21 +123,22 @@ class MentalHealth extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text("Soundscapes",
-                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500)),
+                    style:
+                        TextStyle(fontSize: 18, fontWeight: FontWeight.w500)),
                 Text("See All",
-                    style: TextStyle(fontSize: 15, fontWeight: FontWeight.w500)),
+                    style:
+                        TextStyle(fontSize: 15, fontWeight: FontWeight.w500)),
               ],
             ),
           ),
           const SizedBox(height: 10),
-          const SingleChildScrollView(
+          SingleChildScrollView(
             scrollDirection: Axis.horizontal,
             child: Row(
               children: [
-                SizedBox(width: 20),
-                SoundScapes(title: 'Rain on Leaves'),
-                SoundScapes(title: 'Ocean Waves'),
-                SoundScapes(title: 'White Noise'),
+                const SizedBox(width: 20),
+                ...soundscapeList.map(
+                    (soundScape) => SoundScapesWidget(soundScape: soundScape)),
               ],
             ),
           ),
@@ -153,21 +149,23 @@ class MentalHealth extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text("Popular Stories",
-                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500)),
+                    style:
+                        TextStyle(fontSize: 18, fontWeight: FontWeight.w500)),
                 Text("See All",
-                    style: TextStyle(fontSize: 15, fontWeight: FontWeight.w500)),
+                    style:
+                        TextStyle(fontSize: 15, fontWeight: FontWeight.w500)),
               ],
             ),
           ),
           const SizedBox(height: 10),
-          const SingleChildScrollView(
+          SingleChildScrollView(
             scrollDirection: Axis.horizontal,
             child: Row(
               children: [
-                SizedBox(width: 20),
-                Stories(title: "From Sea to Sky", author: "Keegan Connor Tracy"),
-                Stories(title: "From Sea to Sky", author: "Keegan Connor Tracy"),
-                Stories(title: "From Sea to Sky", author: "Keegan Connor Tracy"),
+                const SizedBox(width: 20),
+                ...storiesList.map(
+                  (story) => StoryWidget(story: story),
+                ),
               ],
             ),
           ),
@@ -180,20 +178,27 @@ class MentalHealth extends StatelessWidget {
 }
 
 class Carousel extends StatelessWidget {
-  final List<String> imgList = [
-    'https://via.placeholder.com/600/92c952',
-    'https://via.placeholder.com/600/771796',
-    'https://via.placeholder.com/600/24f355',
-    'https://via.placeholder.com/600/d32776',
-    'https://via.placeholder.com/600/f66b97',
-  ];
-
   final List<Widget> carouselElements = [
-    const CarouselElement(),
-    const CarouselElement(),
-    const CarouselElement(),
-    const CarouselElement(),
-    const CarouselElement(),
+    const CarouselElement(
+      imagePath:
+          'https://images.unsplash.com/photo-1475924156734-496f6cac6ec1?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    ),
+    const CarouselElement(
+      imagePath:
+          'https://images.pexels.com/photos/3454270/pexels-photo-3454270.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    ),
+    const CarouselElement(
+      imagePath:
+          'https://images.unsplash.com/photo-1536152470836-b943b246224c?q=80&w=1938&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    ),
+    const CarouselElement(
+      imagePath:
+          'https://images.pexels.com/photos/691031/pexels-photo-691031.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    ),
+    const CarouselElement(
+      imagePath:
+          'https://images.pexels.com/photos/16041934/pexels-photo-16041934/free-photo-of-milky-way-in-the-night-sky.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    ),
   ];
 
   Carousel({super.key});
@@ -204,7 +209,7 @@ class Carousel extends StatelessWidget {
       options: CarouselOptions(
         height: 350,
         aspectRatio: 16 / 9,
-        viewportFraction: 0.65,
+        viewportFraction: 0.7,
         initialPage: 0,
         enableInfiniteScroll: true,
         reverse: false,
@@ -213,31 +218,75 @@ class Carousel extends StatelessWidget {
         autoPlayAnimationDuration: const Duration(milliseconds: 800),
         autoPlayCurve: Curves.fastOutSlowIn,
         enlargeCenterPage: true,
-        enlargeFactor: 0.35,
+        enlargeFactor: 0.3,
         scrollDirection: Axis.horizontal,
         // enlargeStrategy: CenterPageEnlargeStrategy.,
       ),
-      // items: imgList.map((item) => Container(
-      //   child: Center(
-      //     child: Image.network(item, fit: BoxFit.cover, width: 1000),
-      //   ),
-      // )).toList(),
       items: carouselElements,
     );
   }
 }
 
 class CarouselElement extends StatelessWidget {
-  const CarouselElement({super.key});
+  const CarouselElement({super.key, required this.imagePath});
+
+  final String imagePath;
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      // height: 600,
       width: MediaQuery.of(context).size.width * 0.65,
       decoration: BoxDecoration(
-        border: Border.all(),
         borderRadius: BorderRadius.circular(20),
+        image: DecorationImage(
+          image: NetworkImage(imagePath),
+          fit: BoxFit.fill,
+        ),
+      ),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: [
+          Container(
+            width: double.maxFinite,
+            padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(20),
+              color: const Color.fromRGBO(255, 255, 255, 0.5),
+            ),
+            child: const Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Text(
+                  "Feel the life",
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 20,
+                      fontWeight: FontWeight.w600),
+                ),
+                Text(
+                  "Close eyes. Breathe. Imagine that you can be anywhere in the world where would you like to be?",
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 12,
+                  ),
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    Text(
+                      "Let's go",
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 12,
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          )
+        ],
       ),
     );
   }
@@ -254,30 +303,48 @@ class TalkToTherapist extends StatelessWidget {
       margin: const EdgeInsets.symmetric(horizontal: 20),
       padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
       decoration: BoxDecoration(
-        border: Border.all(),
-        borderRadius: BorderRadius.circular(20),
-      ),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        crossAxisAlignment: CrossAxisAlignment.start,
+          borderRadius: BorderRadius.circular(20),
+          gradient: LinearGradient(
+            begin: Alignment.topRight,
+            end: Alignment.bottomLeft,
+            colors: [
+              HexColor("#F0F3FF"),
+              HexColor("#F0F3FF"),
+            ],
+          )),
+      child: Stack(
         children: [
-          const Text("Feeling upset?\nTalk to a\ntherapist.",
-              style: TextStyle(fontSize: 30, fontWeight: FontWeight.w500)),
-          Container(
+          Positioned(
+            bottom: 0,
+            right: 0,
             width: 200,
-            decoration: BoxDecoration(
-              border: Border.all(),
-              borderRadius: BorderRadius.circular(20),
+            child: Image.asset(
+              "assets/images/boy-and-girl-giving-high-five-to-each-other.png",
             ),
-            child: const Center(
-              child: Padding(
-                padding: EdgeInsets.all(8.0),
-                child: Text("Start a Conversation",
-                    style:
-                        TextStyle(fontSize: 15, fontWeight: FontWeight.w700)),
-              ),
-            ),
-          )
+          ),
+          Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const Text("Feeling upset?\nTalk to a\ntherapist.",
+                  style: TextStyle(fontSize: 30, fontWeight: FontWeight.w500)),
+              Container(
+                width: 200,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20),
+                  color: Colors.white,
+                ),
+                child: const Center(
+                  child: Padding(
+                    padding: EdgeInsets.all(8.0),
+                    child: Text("Start a Conversation",
+                        style: TextStyle(
+                            fontSize: 15, fontWeight: FontWeight.w700)),
+                  ),
+                ),
+              )
+            ],
+          ),
         ],
       ),
     );
@@ -298,7 +365,7 @@ class VideoBanner extends StatelessWidget {
             height: 200,
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
             decoration: BoxDecoration(
-              border: Border.all(),
+              color: HexColor("#F0F3FF"),
               borderRadius: BorderRadius.circular(15),
             ),
             child: Column(
@@ -306,7 +373,7 @@ class VideoBanner extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Container(
-                  width : MediaQuery.of(context).size.width*0.4,
+                  width: MediaQuery.of(context).size.width * 0.4,
                   child: const Text(
                     "Declutter the noise in your mind",
                     style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
@@ -331,7 +398,7 @@ class VideoBanner extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               SizedBox(
-                width: MediaQuery.of(context).size.width*0.7,
+                width: MediaQuery.of(context).size.width * 0.7,
                 child: const Text(
                   "Declutter the noise in your mind ft Alexander",
                   style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
@@ -362,40 +429,13 @@ class VideoBanner extends StatelessWidget {
   }
 }
 
-class SoundScapes extends StatelessWidget{
-  const SoundScapes({super.key, required this.title});
+class SoundScapesWidget extends StatelessWidget {
+  const SoundScapesWidget({
+    super.key,
+    required this.soundScape,
+  });
 
-  final String title;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      margin: const EdgeInsets.fromLTRB(0, 0, 20, 0),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Container(
-            width: 200,
-            height: 200,
-            decoration: BoxDecoration(
-              border: Border.all(),
-              borderRadius: BorderRadius.circular(15),
-            ),
-          ),
-          const SizedBox(height: 5),
-          Text(title,
-              style: const TextStyle(fontSize: 15, fontWeight: FontWeight.w600)),
-        ],
-      ),
-    );
-  }
-}
-
-class Stories extends StatelessWidget{
-  const Stories({super.key, required this.title, required this.author});
-
-  final String title;
-  final String author;
+  final SoundScape soundScape;
 
   @override
   Widget build(BuildContext context) {
@@ -408,44 +448,82 @@ class Stories extends StatelessWidget{
             width: 200,
             height: 200,
             decoration: BoxDecoration(
-              border: Border.all(),
               borderRadius: BorderRadius.circular(15),
+              image: DecorationImage(
+                image: NetworkImage(soundScape.imagePath),
+                fit: BoxFit.cover,
+              ),
             ),
           ),
           const SizedBox(height: 5),
-          Text(title,
-              style: const TextStyle(fontSize: 15, fontWeight: FontWeight.w600)),
-          Text(author,
-              style: const TextStyle(fontSize: 15)),
+          Text(soundScape.title,
+              style:
+                  const TextStyle(fontSize: 15, fontWeight: FontWeight.w600)),
         ],
       ),
     );
   }
 }
 
-class Journal extends StatelessWidget{
+class StoryWidget extends StatelessWidget {
+  const StoryWidget({
+    super.key,
+    required this.story,
+  });
+
+  final Story story;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: const EdgeInsets.fromLTRB(0, 0, 20, 0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Container(
+            width: 200,
+            height: 200,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(15),
+              image: DecorationImage(
+                image: NetworkImage(story.imagePath),
+                fit: BoxFit.cover,
+              ),
+            ),
+          ),
+          const SizedBox(height: 5),
+          Text(story.storyTitle,
+              style:
+                  const TextStyle(fontSize: 15, fontWeight: FontWeight.w600)),
+          Text(story.author, style: const TextStyle(fontSize: 15)),
+        ],
+      ),
+    );
+  }
+}
+
+class Journal extends StatelessWidget {
   const Journal({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.symmetric(horizontal: 20),
-      padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+      margin: const EdgeInsets.symmetric(horizontal: 20),
+      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
       width: double.maxFinite,
       decoration: BoxDecoration(
         border: Border.all(),
         borderRadius: BorderRadius.circular(15),
       ),
-      child: Row(
+      child: const Row(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
           FaIcon(FontAwesomeIcons.book),
-          const SizedBox(width: 20),
+          SizedBox(width: 20),
           Text("My Journal",
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500)),
         ],
       ),
     );
   }
-
 }

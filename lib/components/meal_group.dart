@@ -1,19 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:hexcolor/hexcolor.dart';
 
 class MealGroup extends StatelessWidget{
-  const MealGroup({super.key});
+  const MealGroup({super.key, required this.title, required this.calories, required this.icon});
+
+  final String title;
+  final int calories;
+  final IconData icon;
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.symmetric(horizontal: 15),
       padding: const EdgeInsets.symmetric(vertical: 10),
+      margin: const EdgeInsets.symmetric(horizontal: 15),
       width: MediaQuery.of(context).size.width,
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(20),
-        border: Border.all(),
-        // color: Colors.cyan,
+        borderRadius: BorderRadius.circular(40),
+        // border: Border.all(),
+        color: HexColor("#F0F3FF"),
       ),
       child: Column(
         children: [
@@ -21,10 +26,6 @@ class MealGroup extends StatelessWidget{
             margin: const EdgeInsets.symmetric(horizontal: 10),
             width: double.maxFinite,
             height: 60,
-            decoration: const BoxDecoration(
-              // border: Border.all(),
-              // color: Colors.cyan,
-            ),
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
@@ -33,19 +34,19 @@ class MealGroup extends StatelessWidget{
                   height: 50,
                   decoration: BoxDecoration(
                     border: Border.all(),
-                    // color: Colors.cyan,
                     shape: BoxShape.circle,
                   ),
                   child: Center(
-                    child: FaIcon(FontAwesomeIcons.sun, size: 20),
+                    child: FaIcon(icon, size: 20),
                   ),
                 ),
                 const SizedBox(width: 10),
-                const Column(
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text("Breakfast", style: TextStyle(fontSize: 20)),
-                    Text("350 calories", style: TextStyle(fontSize: 15),),
+                    Text(title, style: const TextStyle(fontSize: 20,)),
+                    Text("$calories calories", style: const TextStyle(fontSize: 15),),
                   ],
                 ),
                 const Spacer(),
@@ -54,10 +55,9 @@ class MealGroup extends StatelessWidget{
                   height: 50,
                   decoration: BoxDecoration(
                     border: Border.all(),
-                    // color: Colors.cyan,
                     shape: BoxShape.circle,
                   ),
-                  child: Center(
+                  child: const Center(
                     child: FaIcon(FontAwesomeIcons.plus, size: 15),
                   ),
                 ),
@@ -67,10 +67,6 @@ class MealGroup extends StatelessWidget{
           Container(
             margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
             width: double.maxFinite,
-            decoration: const BoxDecoration(
-              // border: Border.all(),
-              // color: Colors.cyan,
-            ),
             child: const Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -94,11 +90,11 @@ class MealGroup extends StatelessWidget{
                   height: 50,
                   decoration: BoxDecoration(
                     border: Border.all(),
-                    // color: Colors.cyan,
+                    color: HexColor("#211951"),
                     shape: BoxShape.circle,
                   ),
                   child: Center(
-                    child: FaIcon(FontAwesomeIcons.pen, size: 15),
+                    child: FaIcon(FontAwesomeIcons.pen, size: 15, color: HexColor("15F5BA"),),
                   ),
                 ),
               ],

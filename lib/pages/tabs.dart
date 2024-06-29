@@ -35,6 +35,7 @@ class _TabsState extends State<Tabs> {
     Color themeColour = const Color.fromARGB(255, 34, 50, 99);
 
     return Scaffold(
+      backgroundColor: Colors.white,
       body: _widgetOptions[_selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
         showSelectedLabels: false,
