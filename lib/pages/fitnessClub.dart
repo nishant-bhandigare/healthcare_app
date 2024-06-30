@@ -36,7 +36,7 @@ class FitnessClub extends StatelessWidget {
                 ),
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(15.0),
-                  child: Image.network(
+                  child: Image.asset(
                     club.imagePath,
                     fit: BoxFit.cover,
                     width: double.infinity,
