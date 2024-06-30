@@ -37,6 +37,107 @@ class _TabsState extends State<Tabs> {
     return Scaffold(
       backgroundColor: Colors.white,
       body: _widgetOptions[_selectedIndex],
+      drawer: Drawer(
+        backgroundColor: const Color.fromRGBO(242, 241, 249, 1),
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: <Widget>[
+            DrawerHeader(
+              decoration: const BoxDecoration(
+                color: Color.fromRGBO(23, 20, 51, 1),
+              ),
+              child: Column(
+                children: [
+                  Container(
+                    height: 100,
+                    width: 100,
+                    decoration: const BoxDecoration(
+                        shape: BoxShape.circle,
+                        image: DecorationImage(
+                            image: NetworkImage(
+                                "https://images.unsplash.com/photo-1530041539828-114de669390e?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"),
+                            fit: BoxFit.cover)),
+                  ),
+                  const SizedBox(height: 5),
+                  const Text(
+                    "Alex Costa",
+                    style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.w600,
+                        color: Colors.white),
+                  )
+                ],
+              ),
+            ),
+            ListTile(
+              leading: const Icon(FontAwesomeIcons.diceD20),
+              title: const Text('Dashboard'),
+              onTap: () {
+                Navigator.pop(context);
+                // Navigate to Dashboard
+              },
+            ),
+            const Divider(),
+            ListTile(
+              leading: const Icon(FontAwesomeIcons.children),
+              title: const Text('My Family'),
+              onTap: () {
+                Navigator.pop(context);
+                // Navigate to Settings
+              },
+            ),
+            ListTile(
+              leading: const Icon(FontAwesomeIcons.notesMedical),
+              title: const Text('Health Records'),
+              onTap: () {
+                Navigator.pop(context);
+                // Navigate to Settings
+              },
+            ),
+            ListTile(
+              leading: const Icon(FontAwesomeIcons.capsules),
+              title: const Text('Medication Remonders'),
+              onTap: () {
+                Navigator.pop(context);
+                // Navigate to Settings
+              },
+            ),
+            ListTile(
+              leading: const Icon(FontAwesomeIcons.stethoscope),
+              title: const Text('My Appointments'),
+              onTap: () {
+                Navigator.pop(context);
+                // Navigate to Settings
+              },
+            ),
+            const Divider(),
+            ListTile(
+              leading: const Icon(FontAwesomeIcons.shieldHalved),
+              title: const Text('Privacy Policy'),
+              onTap: () {
+                Navigator.pop(context);
+                // Navigate to Settings
+              },
+            ),
+            ListTile(
+              leading: const Icon(FontAwesomeIcons.hospital),
+              title: const Text('About Us'),
+              onTap: () {
+                Navigator.pop(context);
+                // Navigate to Settings
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.exit_to_app),
+              title: const Text('Sign Out'),
+              onTap: () {
+                Navigator.pop(context);
+                // Sign out logic
+              },
+            ),
+          ],
+        ),
+      ),
       bottomNavigationBar: BottomNavigationBar(
         showSelectedLabels: false,
         showUnselectedLabels: false,
@@ -48,8 +149,8 @@ class _TabsState extends State<Tabs> {
           BottomNavigationBarItem(
             icon: FaIcon(
               _selectedIndex == 0
-                  ? FontAwesomeIcons.home
-                  : FontAwesomeIcons.home,
+                  ? FontAwesomeIcons.diceD20
+                  : FontAwesomeIcons.diceD20,
             ),
             label: 'Home',
           ),
@@ -64,8 +165,8 @@ class _TabsState extends State<Tabs> {
           BottomNavigationBarItem(
             icon: FaIcon(
               _selectedIndex == 2
-                  ? FontAwesomeIcons.rankingStar
-                  : FontAwesomeIcons.rankingStar,
+                  ? FontAwesomeIcons.trophy
+                  : FontAwesomeIcons.trophy,
             ),
             label: 'Favourites',
           ),

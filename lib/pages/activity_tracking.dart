@@ -158,7 +158,7 @@ class PedometerGauge extends StatelessWidget {
             SizedBox(
               height: 250,
               child: SfRadialGauge(
-                enableLoadingAnimation: true,
+                enableLoadingAnimation: false,
                 axes: <RadialAxis>[
                   RadialAxis(
                     startAngle: 180,

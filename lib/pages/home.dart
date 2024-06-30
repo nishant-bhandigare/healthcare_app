@@ -167,6 +167,8 @@ class Meter extends StatelessWidget {
                   Text("${percentage.toString()} %",
                       style:
                           const TextStyle(fontSize: 15, fontWeight: FontWeight.w700)),
+                  const Spacer(),
+                  const FaIcon(FontAwesomeIcons.chevronRight, size: 15,)
                 ],
               ),
             ],

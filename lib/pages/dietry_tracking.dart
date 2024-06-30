@@ -1,5 +1,3 @@
-// ignore_for_file: avoid_unnecessary_containers
-
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -9,7 +7,8 @@ class DietryTrackingPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      backgroundColor: Colors.white,
+      appBar: AppBar(backgroundColor: Colors.white),
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -17,10 +16,6 @@ class DietryTrackingPage extends StatelessWidget {
             Container(
               margin: const EdgeInsets.symmetric(horizontal: 15),
               width: MediaQuery.of(context).size.width,
-              decoration: const BoxDecoration(
-                  // border: Border.all(),
-                  // color: Colors.cyan,
-                  ),
               child: const Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
@@ -33,10 +28,6 @@ class DietryTrackingPage extends StatelessWidget {
             Container(
               margin: const EdgeInsets.symmetric(horizontal: 15),
               width: MediaQuery.of(context).size.width,
-              decoration: const BoxDecoration(
-                  // border: Border.all(),
-                  // color: Colors.cyan,
-                  ),
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
@@ -45,11 +36,11 @@ class DietryTrackingPage extends StatelessWidget {
                   Container(
                     width: 50,
                     height: 50,
-                    decoration: BoxDecoration(
-                      border: Border.all(),
-                      // color: Colors.cyan,
+                    decoration: const BoxDecoration(
                       shape: BoxShape.circle,
+                      color: Color.fromRGBO(242, 241, 249,1),
                     ),
+                    child: const Center(child: FaIcon(FontAwesomeIcons.calendar, size: 25,)),
                   ),
                 ],
               ),
@@ -58,19 +49,16 @@ class DietryTrackingPage extends StatelessWidget {
             Container(
               margin: const EdgeInsets.symmetric(horizontal: 15),
               width: double.maxFinite,
-              decoration: const BoxDecoration(
-                // border: Border.all(),
-              ),
               child: const Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   WeekDay(day: "M", date: 12),
-                  WeekDay(day: "M", date: 12),
-                  WeekDay(day: "M", date: 12),
-                  WeekDay(day: "M", date: 12),
-                  WeekDay(day: "M", date: 12),
-                  WeekDay(day: "M", date: 12),
-                  WeekDay(day: "M", date: 12),
+                  WeekDay(day: "T", date: 13),
+                  WeekDay(day: "W", date: 14),
+                  WeekDay(day: "T", date: 15),
+                  WeekDay(day: "F", date: 16),
+                  WeekDay(day: "S", date: 17),
+                  WeekDay(day: "S", date: 18),
                 ],
               ),
             ),
@@ -137,21 +125,18 @@ class WeekDay extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: MediaQuery.of(context).size.width * 0.12,
-      decoration: const BoxDecoration(
-          // border: Border.all(),
-          ),
+    return SizedBox(
+      width: MediaQuery.of(context).size.width * 0.11,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Text(day),
+          Text(day, style: const TextStyle(fontSize: 15, fontWeight: FontWeight.w600),),
           Container(
             width: MediaQuery.of(context).size.width * 0.12,
             height: 150,
             margin: const EdgeInsets.symmetric(vertical: 5),
             decoration: BoxDecoration(
-              border: Border.all(),
+              color: const Color.fromRGBO(242, 241, 249,1),
               borderRadius: BorderRadius.circular(100),
             ),
             child: Column(
@@ -162,29 +147,29 @@ class WeekDay extends StatelessWidget {
                     width: 10,
                     height: 10,
                     margin: const EdgeInsets.symmetric(vertical: 5),
-                    decoration: BoxDecoration(
+                    decoration: const BoxDecoration(
                       shape: BoxShape.circle,
-                      border: Border.all(),
+                      color: Color.fromRGBO(23, 20, 51, 1),
                     )),
                 Container(
                   width: double.infinity,
                   height: 100,
                   decoration: BoxDecoration(
-                    color: Colors.cyan,
+                    color: const Color.fromRGBO(126, 228, 240, 1),
                     borderRadius: BorderRadius.circular(100),
                   ),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
                       Container(
-                        width: 40,
-                        height: 40,
-                        decoration: BoxDecoration(
+                        width: 35,
+                        height: 35,
+                        decoration: const BoxDecoration(
                           shape: BoxShape.circle,
-                          border: Border.all(),
+                          color: Color.fromRGBO(113, 104, 211, 1),
                         ),
                         child: Center(
-                          child: Text(date.toString()),
+                          child: Text(date.toString(), style: const TextStyle(color: Colors.white, fontSize: 15, fontWeight: FontWeight.w600),),
                         ),
                       ),
                       const SizedBox(height: 5),
@@ -208,10 +193,10 @@ class FoodItem extends StatelessWidget{
     return Expanded(
       child: Container(
         height: 200,
-        padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 15),
+        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
         decoration: BoxDecoration(
-          border: Border.all(),
-          borderRadius: BorderRadius.circular(25),
+          color: const Color.fromRGBO(242, 241, 249,1),
+          borderRadius: BorderRadius.circular(40),
         ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -230,7 +215,7 @@ class FoodItem extends StatelessWidget{
                   width: 8,
                   height: 40,
                   decoration: BoxDecoration(
-                    border: Border.all(),
+                    color: const Color.fromRGBO(23, 20, 51, 1),
                     borderRadius: BorderRadius.circular(10),
                   ),
                 ),
@@ -252,7 +237,7 @@ class FoodItem extends StatelessWidget{
                   width: 8,
                   height: 40,
                   decoration: BoxDecoration(
-                    border: Border.all(),
+                    color: const Color.fromRGBO(23, 20, 51, 1),
                     borderRadius: BorderRadius.circular(10),
                   ),
                 ),

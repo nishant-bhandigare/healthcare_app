@@ -1,18 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:healthcare_app/pages/loginSignUp/auth.dart';
-import 'package:healthcare_app/pages/loginSignUp/profileSetup.dart';
+import 'package:healthcare_app/pages/storyPage.dart';
 import 'package:healthcare_app/pages/tabs.dart';
 
 void main() {
 
-  // final Color primary = HexColor("#171433");
-  // final Color secondary1 = HexColor("#7168d3"); //purple
-  // final Color secondary2 = HexColor("#7fe4fO"); //blue
-  // final Color neutral = HexColor("#f2f1f9");
+  // const Color primary = Color.fromRGBO(23, 20, 51, 1);
+  // const Color secondary1 = Color.fromRGBO(113, 104, 211, 1);
+  // const Color secondary2 = Color.fromRGBO(126, 228, 240, 1);
+  // const Color neutral = Color.fromRGBO(242, 241, 249, 1);
 
   runApp(
-    const MaterialApp(
+    MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Tabs(),
     ),
   );

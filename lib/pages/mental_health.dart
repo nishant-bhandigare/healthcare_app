@@ -5,6 +5,7 @@ import 'package:healthcare_app/data/soundscape_data.dart';
 import 'package:healthcare_app/data/stories_data.dart';
 import 'package:healthcare_app/models/soundscape_model.dart';
 import 'package:healthcare_app/models/stories_model.dart';
+import 'package:healthcare_app/pages/diary/myJournal.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:lottie/lottie.dart';
 
@@ -42,9 +43,6 @@ class MentalHealth extends StatelessWidget {
             width: double.maxFinite,
             height: 220,
             margin: const EdgeInsets.symmetric(horizontal: 20),
-            decoration: const BoxDecoration(
-                // border: Border.all(),
-                ),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -507,22 +505,32 @@ class Journal extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: const EdgeInsets.symmetric(horizontal: 20),
-      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-      width: double.maxFinite,
-      decoration: BoxDecoration(
-        border: Border.all(),
-        borderRadius: BorderRadius.circular(15),
-      ),
-      child: const Row(
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          FaIcon(FontAwesomeIcons.book),
-          SizedBox(width: 20),
-          Text("My Journal",
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500)),
-        ],
+    return GestureDetector(
+      onTap: (){
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => const MyJournal(),
+          ),
+        );
+      },
+      child: Container(
+        margin: const EdgeInsets.symmetric(horizontal: 20),
+        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+        width: double.maxFinite,
+        decoration: BoxDecoration(
+          color: const Color.fromRGBO(242, 241, 249, 1),
+          borderRadius: BorderRadius.circular(15),
+        ),
+        child: const Row(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            FaIcon(FontAwesomeIcons.bookOpen),
+            SizedBox(width: 20),
+            Text("My Journal",
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500)),
+          ],
+        ),
       ),
     );
   }
