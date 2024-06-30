@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:healthcare_app/pages/storyPage.dart';
 import 'package:healthcare_app/pages/tabs.dart';
 
 void main() {
@@ -10,7 +9,7 @@ void main() {
   // const Color neutral = Color.fromRGBO(242, 241, 249, 1);
 
   runApp(
-    MaterialApp(
+    const MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Tabs(),
     ),

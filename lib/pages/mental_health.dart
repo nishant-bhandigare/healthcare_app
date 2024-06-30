@@ -6,6 +6,7 @@ import 'package:healthcare_app/data/stories_data.dart';
 import 'package:healthcare_app/models/soundscape_model.dart';
 import 'package:healthcare_app/models/stories_model.dart';
 import 'package:healthcare_app/pages/diary/myJournal.dart';
+import 'package:healthcare_app/pages/searchDoctors.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:lottie/lottie.dart';
 
@@ -96,7 +97,7 @@ class MentalHealth extends StatelessWidget {
               ],
             ),
           ),
-          const SizedBox(height: 15),
+          const SizedBox(height: 20),
           const Padding(
             padding: EdgeInsets.symmetric(horizontal: 20),
             child: Row(
@@ -115,6 +116,7 @@ class MentalHealth extends StatelessWidget {
           const VideoBanner(),
           const SizedBox(height: 10),
           const VideoBanner(),
+          const SizedBox(height: 20),
           const Padding(
             padding: EdgeInsets.symmetric(horizontal: 20),
             child: Row(
@@ -179,23 +181,19 @@ class Carousel extends StatelessWidget {
   final List<Widget> carouselElements = [
     const CarouselElement(
       imagePath:
-          'https://images.unsplash.com/photo-1475924156734-496f6cac6ec1?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+          'assets/images/free-photo-of-milky-way-in-the-night-sky.jpeg',
     ),
     const CarouselElement(
       imagePath:
-          'https://images.pexels.com/photos/3454270/pexels-photo-3454270.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+      'assets/images/free-photo-of-milky-way-in-the-night-sky.jpeg',
     ),
     const CarouselElement(
       imagePath:
-          'https://images.unsplash.com/photo-1536152470836-b943b246224c?q=80&w=1938&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+      'assets/images/free-photo-of-milky-way-in-the-night-sky.jpeg',
     ),
     const CarouselElement(
       imagePath:
-          'https://images.pexels.com/photos/691031/pexels-photo-691031.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-    ),
-    const CarouselElement(
-      imagePath:
-          'https://images.pexels.com/photos/16041934/pexels-photo-16041934/free-photo-of-milky-way-in-the-night-sky.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+      'assets/images/free-photo-of-milky-way-in-the-night-sky.jpeg',
     ),
   ];
 
@@ -237,7 +235,7 @@ class CarouselElement extends StatelessWidget {
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20),
         image: DecorationImage(
-          image: NetworkImage(imagePath),
+          image: AssetImage(imagePath),
           fit: BoxFit.fill,
         ),
       ),
@@ -326,18 +324,28 @@ class TalkToTherapist extends StatelessWidget {
             children: [
               const Text("Feeling upset?\nTalk to a\ntherapist.",
                   style: TextStyle(fontSize: 30, fontWeight: FontWeight.w500)),
-              Container(
-                width: 200,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20),
-                  color: Colors.white,
-                ),
-                child: const Center(
-                  child: Padding(
-                    padding: EdgeInsets.all(8.0),
-                    child: Text("Start a Conversation",
-                        style: TextStyle(
-                            fontSize: 15, fontWeight: FontWeight.w700)),
+              GestureDetector(
+                onTap: (){
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const SearchDoctors(),
+                    ),
+                  );
+                },
+                child: Container(
+                  width: 200,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20),
+                    color: Colors.white,
+                  ),
+                  child: const Center(
+                    child: Padding(
+                      padding: EdgeInsets.all(8.0),
+                      child: Text("Start a Conversation",
+                          style: TextStyle(
+                              fontSize: 15, fontWeight: FontWeight.w700)),
+                    ),
                   ),
                 ),
               )
@@ -448,7 +456,7 @@ class SoundScapesWidget extends StatelessWidget {
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(15),
               image: DecorationImage(
-                image: NetworkImage(soundScape.imagePath),
+                image: AssetImage(soundScape.imagePath),
                 fit: BoxFit.cover,
               ),
             ),
@@ -484,7 +492,7 @@ class StoryWidget extends StatelessWidget {
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(15),
               image: DecorationImage(
-                image: NetworkImage(story.imagePath),
+                image: AssetImage(story.imagePath),
                 fit: BoxFit.cover,
               ),
             ),

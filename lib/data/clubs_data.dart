@@ -4,7 +4,7 @@ List<ClubsModel> clubsData = [
   ClubsModel(
     clubName: "Yoga Club",
     participantCount: 1521,
-    imagePath: "https://images.unsplash.com/photo-1545389336-cf090694435e?q=80&w=1964&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    imagePath: "assets/images/yoga-club.jpg",
     description: "A club focused on yoga and mindfulness practices.",
     contactInfo: "contact@yogaclub.com",
     activities: ["Yoga Sessions", "Meditation", "Workshops"],
@@ -13,7 +13,7 @@ List<ClubsModel> clubsData = [
   ClubsModel(
     clubName: "Workout Club",
     participantCount: 2384,
-    imagePath: "https://images.unsplash.com/photo-1545346315-f4c47e3e1b55?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    imagePath: "assets/images/workout-club.jpg",
     description: "A club dedicated to fitness and physical wellness.",
     contactInfo: "info@fitnessclub.com",
     activities: ["Gym Workouts", "Cardio Sessions", "Strength Training"],
@@ -22,7 +22,7 @@ List<ClubsModel> clubsData = [
   ClubsModel(
     clubName: "Mental Health Club",
     participantCount: 1132,
-    imagePath: "https://images.unsplash.com/photo-1608493830924-ec843d9c98c6?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    imagePath: "assets/images/mental-health-club.jpg",
     description: "A club promoting mental health awareness and support.",
     contactInfo: "support@mentalhealthclub.com",
     activities: ["Support Groups", "Counseling Sessions", "Workshops"],
@@ -31,7 +31,7 @@ List<ClubsModel> clubsData = [
   ClubsModel(
     clubName: "Nutrition Club",
     participantCount: 987,
-    imagePath: "https://images.unsplash.com/photo-1570197571499-166b36435e9f?q=80&w=1906&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    imagePath: "assets/images/nutrition-club.jpg",
     description: "A club focused on healthy eating and nutrition.",
     contactInfo: "contact@nutritionclub.com",
     activities: ["Healthy Cooking Classes", "Diet Planning", "Nutrition Workshops"],
@@ -40,7 +40,7 @@ List<ClubsModel> clubsData = [
   ClubsModel(
     clubName: "Meditation Club",
     participantCount: 764,
-    imagePath: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?q=80&w=1999&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    imagePath: "assets/images/meditaion-club.jpg",
     description: "A club dedicated to the practice of meditation and mindfulness.",
     contactInfo: "info@meditationclub.com",
     activities: ["Guided Meditation", "Mindfulness Exercises", "Retreats"],
@@ -49,7 +49,7 @@ List<ClubsModel> clubsData = [
   ClubsModel(
     clubName: "Running Club",
     participantCount: 1423,
-    imagePath: "https://plus.unsplash.com/premium_photo-1674605365723-15e6749630f4?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    imagePath: "assets/images/running-club.jpg",
     description: "A club for running enthusiasts of all levels.",
     contactInfo: "contact@runningclub.com",
     activities: ["Group Runs", "Marathon Training", "Running Workshops"],
@@ -58,7 +58,7 @@ List<ClubsModel> clubsData = [
   ClubsModel(
     clubName: "Dance Club",
     participantCount: 1289,
-    imagePath: "https://images.unsplash.com/photo-1540324155974-7523202daa3f?q=80&w=1915&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    imagePath: "assets/images/dance-club.jpg",
     description: "A club offering various dance classes for fitness and fun.",
     contactInfo: "info@danceclub.com",
     activities: ["Dance Classes", "Fitness Dance", "Dance Performances"],
@@ -67,7 +67,7 @@ List<ClubsModel> clubsData = [
   ClubsModel(
     clubName: "Cycling Club",
     participantCount: 934,
-    imagePath: "https://images.unsplash.com/photo-1534146789009-76ed5060ec70?q=80&w=1909&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    imagePath: "assets/images/swimming-club.jpg",
     description: "A club for cycling enthusiasts and beginners alike.",
     contactInfo: "contact@cyclingclub.com",
     activities: ["Group Rides", "Cycling Workshops", "Bike Maintenance Sessions"],
@@ -76,7 +76,7 @@ List<ClubsModel> clubsData = [
   ClubsModel(
     clubName: "Swimming Club",
     participantCount: 807,
-    imagePath: "https://images.unsplash.com/photo-1560089000-7433a4ebbd64?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDN8fHxlbnwwfHx8fHw%3D",
+    imagePath: "assets/images/cycling-club.jpg",
     description: "A club for swimming enthusiasts and fitness swimmers.",
     contactInfo: "info@swimmingclub.com",
     activities: ["Swim Training", "Water Aerobics", "Swim Competitions"],
@@ -85,7 +85,7 @@ List<ClubsModel> clubsData = [
   ClubsModel(
     clubName: "Hiking Club",
     participantCount: 670,
-    imagePath: "https://plus.unsplash.com/premium_photo-1681266198566-833faf583dd8?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    imagePath: "assets/images/hiking-club.jpg",
     description: "A club for those who love hiking and exploring nature.",
     contactInfo: "contact@hikingclub.com",
     activities: ["Group Hikes", "Nature Walks", "Outdoor Adventures"],

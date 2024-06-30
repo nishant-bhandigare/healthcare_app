@@ -10,9 +10,10 @@ class FitnessClub extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
         title: Text(club.clubName),
-        backgroundColor: Colors.green,
+        backgroundColor: Colors.white,
         elevation: 0,
       ),
       body: SingleChildScrollView(
@@ -102,7 +103,7 @@ class FitnessClub extends StatelessWidget {
                     children: [
                       const Icon(
                         Icons.check_circle,
-                        color: Colors.green,
+                        color: Color.fromRGBO(23, 20, 51, 1),
                       ),
                       const SizedBox(width: 8.0),
                       Text(
@@ -121,7 +122,7 @@ class FitnessClub extends StatelessWidget {
                 children: [
                   const Icon(
                     Icons.group,
-                    color: Colors.green,
+                    color: Color.fromRGBO(23, 20, 51, 1),
                   ),
                   const SizedBox(width: 8.0),
                   Text(
@@ -135,18 +136,10 @@ class FitnessClub extends StatelessWidget {
               ),
               const SizedBox(height: 32.0),
               Center(
-                child: ElevatedButton(
-                  onPressed: () {
-                    // Implement join club functionality here
-                  },
-                  style: ElevatedButton.styleFrom(
-                    padding: const EdgeInsets.symmetric(horizontal: 40.0, vertical: 15.0),
-                    backgroundColor: Colors.green,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(12.0),
-                    ),
-                    elevation: 5,
-                  ),
+                child: Container(
+                  width: double.maxFinite,
+                  padding: const EdgeInsets.symmetric(vertical: 10),
+                  margin: const EdgeInsets.symmetric(horizontal: 20),
                   child: const Text(
                     'Join Club',
                     style: TextStyle(

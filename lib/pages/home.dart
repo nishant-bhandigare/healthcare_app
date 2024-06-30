@@ -7,6 +7,7 @@ import 'package:healthcare_app/components/meal_group.dart';
 import 'package:healthcare_app/components/home_header.dart';
 import 'package:healthcare_app/pages/dietry_tracking.dart';
 import 'package:hexcolor/hexcolor.dart';
+import 'package:lottie/lottie.dart';
 import 'package:syncfusion_flutter_gauges/gauges.dart';
 
 class HomePage extends StatelessWidget {
@@ -56,11 +57,53 @@ class HomePage extends StatelessWidget {
                     ),
                     // SizedBox(height: 15),
                     const Spacer(),
-                    const Text("Steps Goal", style: TextStyle(fontSize: 15),),
+                    Row(
+                      children: [
+                        Container(
+                          width: 10,
+                          height: 10,
+                          decoration:  BoxDecoration(
+                            border: Border.all(),
+                            color: Colors.yellow,
+                            shape: BoxShape.circle,
+                          ),
+                        ),
+                        const SizedBox(width: 10),
+                        const Text("Steps Goal", style: TextStyle(fontSize: 15),),
+                      ],
+                    ),
                     const SizedBox(height: 5),
-                    const Text("Calories Burnt", style: TextStyle(fontSize: 15),),
+                    Row(
+                      children: [
+                        Container(
+                          width: 10,
+                          height: 10,
+                          decoration:  BoxDecoration(
+                            border: Border.all(),
+                            color: HexColor("#fa95e3"),
+                            shape: BoxShape.circle,
+                          ),
+                        ),
+                        const SizedBox(width: 10),
+                        const Text("Calories Burnt", style: TextStyle(fontSize: 15),),
+                      ],
+                    ),
                     const SizedBox(height: 5),
-                    const Text("Water Consumed", style: TextStyle(fontSize: 15),),
+                    Row(
+                      children: [
+                        Container(
+                          width: 10,
+                          height: 10,
+                          decoration:  BoxDecoration(
+                            border: Border.all(),
+                            color: HexColor("#75e4eb"),
+                            shape: BoxShape.circle,
+                          ),
+                        ),
+                        const SizedBox(width: 10),
+                        const Text("Water Consumed", style: TextStyle(fontSize: 15),),
+                      ],
+                    ),
                     const SizedBox(height: 5),
                   ],
                 ),
@@ -69,7 +112,7 @@ class HomePage extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 30),
-          Carousel(),
+          const Carousel(),
           const SizedBox(height: 30),
           const Padding(
             padding: EdgeInsets.symmetric(horizontal: 15),
@@ -91,6 +134,25 @@ class HomePage extends StatelessWidget {
           const SizedBox(height: 25),
           const MealGroup(
               title: 'Dinner', calories: 1280, icon: CupertinoIcons.moon),
+          const SizedBox(height: 25),
+          GestureDetector(
+            onTap: () {},
+            child: Container(
+              width: 50,
+              height: 50,
+              decoration: const BoxDecoration(
+                color: Color.fromRGBO(23, 20, 51, 1),
+                shape: BoxShape.circle,
+              ),
+              child: const Center(
+                child: FaIcon(
+                  FontAwesomeIcons.plus,
+                  size: 15,
+                  color: Colors.white,
+                ),
+              ),
+            ),
+          ),
           const SizedBox(height: 25),
         ],
       ),
@@ -180,7 +242,7 @@ class Meter extends StatelessWidget {
 }
 
 class Carousel extends StatefulWidget {
-  Carousel({super.key});
+  const Carousel({super.key});
 
   @override
   State<Carousel> createState() => _CarouselState();
@@ -208,7 +270,7 @@ class _CarouselState extends State<Carousel> {
             initialPage: 0,
             enableInfiniteScroll: true,
             reverse: false,
-            autoPlay: true,
+            autoPlay: false,
             autoPlayInterval: const Duration(seconds: 3),
             autoPlayAnimationDuration: const Duration(milliseconds: 800),
             autoPlayCurve: Curves.fastOutSlowIn,
@@ -251,10 +313,40 @@ class CarouselElement extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
       decoration: BoxDecoration(
         border: Border.all(),
-        color: HexColor("#211951"),
+        color: const Color.fromRGBO(23, 20, 51, 1),
         borderRadius: BorderRadius.circular(50),
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          const SizedBox(width: 20),
+          const SizedBox(
+            width: 100,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  "Train Your Body & Mind",
+                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600, color: Colors.white),
+                ),
+                Text(
+                  "Read More",
+                  style: TextStyle(fontSize: 10, color: Colors.grey),
+                ),
+              ],
+            ),
+          ),
+          const Spacer(),
+          SizedBox(
+            child: Center(
+              child: Lottie.asset("assets/animations/runner2.json"),
+            ),
+          )
+        ],
       ),
     );
   }
@@ -265,77 +357,83 @@ class CustomGauge extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: MediaQuery.of(context).size.width*0.6,
-      width: MediaQuery.of(context).size.width*0.4,
-      child: SfRadialGauge(
-        enableLoadingAnimation: true,
-        axes: <RadialAxis>[
-          RadialAxis(
-            showLabels: false,
-            showTicks: false,
-            startAngle: 270,
-            endAngle: 270,
-            radiusFactor: 0.95,
-            axisLineStyle: AxisLineStyle(
-              thickness: 0.05,
-              color: Colors.grey[300],
-              thicknessUnit: GaugeSizeUnit.factor,
-            ),
-            pointers: const <GaugePointer>[
-              RangePointer(
-                value: 65,
-                width: 0.1,
-                sizeUnit: GaugeSizeUnit.factor,
-                color: Colors.yellow,
-                cornerStyle: CornerStyle.bothCurve,
+    return Stack(
+      alignment: Alignment.center,
+      children: [
+        // Center(child: Lottie.asset("assets/animations/gradient3.json", width: 60)),
+        SizedBox(
+          height: MediaQuery.of(context).size.width*0.6,
+          width: MediaQuery.of(context).size.width*0.4,
+          child: SfRadialGauge(
+            enableLoadingAnimation: true,
+            axes: <RadialAxis>[
+              RadialAxis(
+                showLabels: false,
+                showTicks: false,
+                startAngle: 270,
+                endAngle: 270,
+                radiusFactor: 0.95,
+                axisLineStyle: AxisLineStyle(
+                  thickness: 0.05,
+                  color: Colors.grey[300],
+                  thicknessUnit: GaugeSizeUnit.factor,
+                ),
+                pointers: const <GaugePointer>[
+                  RangePointer(
+                    value: 65,
+                    width: 0.1,
+                    sizeUnit: GaugeSizeUnit.factor,
+                    color: Colors.yellow,
+                    cornerStyle: CornerStyle.bothCurve,
+                  ),
+                ],
+              ),
+              RadialAxis(
+                showLabels: false,
+                showTicks: false,
+                startAngle: 270,
+                endAngle: 270,
+                radiusFactor: 0.85,
+                axisLineStyle: AxisLineStyle(
+                  thickness: 0.06,
+                  color: Colors.grey[300],
+                  thicknessUnit: GaugeSizeUnit.factor,
+                ),
+                pointers: <GaugePointer>[
+                  RangePointer(
+                    value: 60,
+                    width: 0.1,
+                    sizeUnit: GaugeSizeUnit.factor,
+                    color: HexColor("#fa95e3"),
+                    cornerStyle: CornerStyle.bothCurve,
+                  ),
+                ],
+              ),
+              RadialAxis(
+                showLabels: false,
+                showTicks: false,
+                startAngle: 270,
+                endAngle: 270,
+                radiusFactor: 0.75,
+                axisLineStyle: AxisLineStyle(
+                  thickness: 0.07,
+                  color: Colors.grey[300],
+                  thicknessUnit: GaugeSizeUnit.factor,
+                ),
+                pointers: <GaugePointer>[
+                  RangePointer(
+                    value: 50,
+                    width: 0.1,
+                    sizeUnit: GaugeSizeUnit.factor,
+                    color: HexColor("#75e4eb"),
+                    cornerStyle: CornerStyle.bothCurve,
+                  ),
+                ],
               ),
             ],
           ),
-          RadialAxis(
-            showLabels: false,
-            showTicks: false,
-            startAngle: 270,
-            endAngle: 270,
-            radiusFactor: 0.85,
-            axisLineStyle: AxisLineStyle(
-              thickness: 0.06,
-              color: Colors.grey[300],
-              thicknessUnit: GaugeSizeUnit.factor,
-            ),
-            pointers: <GaugePointer>[
-              RangePointer(
-                value: 60,
-                width: 0.1,
-                sizeUnit: GaugeSizeUnit.factor,
-                color: HexColor("#fa95e3"),
-                cornerStyle: CornerStyle.bothCurve,
-              ),
-            ],
-          ),
-          RadialAxis(
-            showLabels: false,
-            showTicks: false,
-            startAngle: 270,
-            endAngle: 270,
-            radiusFactor: 0.75,
-            axisLineStyle: AxisLineStyle(
-              thickness: 0.07,
-              color: Colors.grey[300],
-              thicknessUnit: GaugeSizeUnit.factor,
-            ),
-            pointers: <GaugePointer>[
-              RangePointer(
-                value: 50,
-                width: 0.1,
-                sizeUnit: GaugeSizeUnit.factor,
-                color: HexColor("#75e4eb"),
-                cornerStyle: CornerStyle.bothCurve,
-              ),
-            ],
-          ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }

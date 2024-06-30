@@ -43,13 +43,9 @@ dependencies:
   flutter_floating_bottom_bar: ^1.2.0
   carousel_indicator: ^1.0.6
   hexcolor: ^3.0.1
-  animated_background: ^2.0.0
-  dio: ^5.4.3+1
-  get: ^4.6.6
   wheel_picker: ^0.0.4
-  percent_indicator: ^4.2.3
-  just_audio: ^0.9.38
   syncfusion_flutter_sliders: ^26.1.39
+  cached_network_image: ^3.3.1
 
 dev_dependencies:
   flutter_test:

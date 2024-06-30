@@ -40,22 +40,22 @@ class Leaderboard extends StatelessWidget {
                 style: TextStyle(fontSize: 25, fontWeight: FontWeight.w700)),
           ),
         ),
-        const LeagueMember(name: 'Alex', diff: 5, arrow: true),
-        const LeagueMember(name: 'Alex', diff: 5, arrow: true),
-        const LeagueMember(name: 'Alex', diff: 5, arrow: true),
-        const LeagueMember(name: 'Alex', diff: 5, arrow: true),
+        const LeagueMember(name: 'Alex Costa', diff: 5, arrow: true),
+        const LeagueMember(name: 'Alex Costa', diff: 5, arrow: true),
+        const LeagueMember(name: 'Alex Costa', diff: 5, arrow: true),
+        const LeagueMember(name: 'Alex Costa', diff: 5, arrow: true),
         const Text("Promotion Zone",
             style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700)),
-        const LeagueMember(name: 'Alex', diff: 5, arrow: true),
-        const LeagueMember(name: 'Alex', diff: 5, arrow: true),
-        const LeagueMember(name: 'Alex', diff: 5, arrow: true),
-        const LeagueMember(name: 'Alex', diff: 5, arrow: true),
+        const LeagueMember(name: 'Alex Costa', diff: 5, arrow: true),
+        const LeagueMember(name: 'Alex Costa', diff: 5, arrow: true),
+        const LeagueMember(name: 'Alex Costa', diff: 5, arrow: true),
+        const LeagueMember(name: 'Alex Costa', diff: 5, arrow: true),
         const Text("Demotion Zone",
             style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700)),
-        const LeagueMember(name: 'Alex', diff: 5, arrow: true),
-        const LeagueMember(name: 'Alex', diff: 5, arrow: true),
-        const LeagueMember(name: 'Alex', diff: 5, arrow: true),
-        const LeagueMember(name: 'Alex', diff: 5, arrow: true),
+        const LeagueMember(name: 'Alex Costa', diff: 5, arrow: true),
+        const LeagueMember(name: 'Alex Costa', diff: 5, arrow: true),
+        const LeagueMember(name: 'Alex Costa', diff: 5, arrow: true),
+        const LeagueMember(name: 'Alex Costa', diff: 5, arrow: true),
       ]),
     );
   }
@@ -77,17 +77,17 @@ class TopThreeBanner extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.end,
         children: [
           TopThree(
-            name: "Alex",
+            name: "Alex Costa",
             radius: 45,
             position: 2,
           ),
           TopThree(
-            name: "Alex",
+            name: "Alex Costa",
             radius: 70,
             position: 1,
           ),
           TopThree(
-            name: "Alex",
+            name: "Alex Costa",
             radius: 45,
             position: 3,
           ),
@@ -110,24 +110,20 @@ class TopThree extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: const BoxDecoration(
-          // border: Border.all(),
-          ),
-      child: Column(
-        children: [
-          CircleAvatar(
-            radius: radius,
-          ),
-          const SizedBox(height: 3),
-          Text(position.toString(),
-              style:
-                  const TextStyle(fontSize: 15, fontWeight: FontWeight.w500)),
-          Text(name,
-              style:
-                  const TextStyle(fontSize: 15, fontWeight: FontWeight.w500)),
-        ],
-      ),
+    return Column(
+      children: [
+        CircleAvatar(
+          radius: radius,
+          backgroundImage: const AssetImage("assets/images/profile.png"),
+        ),
+        const SizedBox(height: 3),
+        Text(position.toString(),
+            style:
+                const TextStyle(fontSize: 15, fontWeight: FontWeight.w500)),
+        Text(name,
+            style:
+                const TextStyle(fontSize: 15, fontWeight: FontWeight.w500)),
+      ],
     );
   }
 }
@@ -149,6 +145,7 @@ class LeagueMember extends StatelessWidget {
         children: [
           const CircleAvatar(
             radius: 25,
+            foregroundImage: AssetImage('assets/images/profile.png'),
           ),
           const SizedBox(width: 15),
           Text(name,

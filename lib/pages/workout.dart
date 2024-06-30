@@ -4,6 +4,7 @@ import 'package:healthcare_app/data/clubs_data.dart';
 import 'package:healthcare_app/data/exercise_data.dart';
 import 'package:healthcare_app/models/clubs_model.dart';
 import 'package:healthcare_app/models/exercise_model.dart';
+import 'package:healthcare_app/pages/exerciseDetails.dart';
 import 'package:healthcare_app/pages/fitnessClub.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:lottie/lottie.dart';
@@ -21,32 +22,37 @@ class WorkoutPage extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const SizedBox(height: 40),
-          Container(
-            margin: const EdgeInsets.symmetric(horizontal: 15),
-            width: MediaQuery.of(context).size.width,
-            height: 60,
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20),
             child: Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Container(
-                  width: 50,
-                  height: 50,
-                  decoration: BoxDecoration(
-                    border: Border.all(),
-                    borderRadius: BorderRadius.circular(15),
+                GestureDetector(
+                  onTap: (){
+                    Navigator.pop(context);
+                  },
+                  child: Container(
+                    width: 50,
+                    height: 50,
+                    decoration: const BoxDecoration(
+                      color: Color.fromRGBO(242, 241, 249, 1),
+                      shape: BoxShape.circle,
+                    ),
+                    child: const Center(
+                      child: FaIcon(FontAwesomeIcons.bars, size: 15,),
+                    ),
                   ),
-                  child: const Center(child: FaIcon(FontAwesomeIcons.bars)),
                 ),
                 Container(
                   width: 50,
                   height: 50,
-                  decoration: BoxDecoration(
-                    border: Border.all(),
-                    borderRadius: BorderRadius.circular(15),
+                  decoration: const BoxDecoration(
+                    color: Color.fromRGBO(242, 241, 249, 1),
+                    shape: BoxShape.circle,
                   ),
                   child: const Center(
-                      child: FaIcon(FontAwesomeIcons.magnifyingGlass)),
+                    child: FaIcon(FontAwesomeIcons.magnifyingGlass, size: 15,),
+                  ),
                 ),
               ],
             ),
@@ -86,7 +92,7 @@ class WorkoutPage extends StatelessWidget {
               ],
             ),
           ),
-          const SizedBox(height: 10),
+          const SizedBox(height: 20),
           Container(
             margin: const EdgeInsets.symmetric(
               horizontal: 20,
@@ -126,7 +132,7 @@ class ClubBanner extends StatelessWidget {
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(30),
           image: DecorationImage(
-              image: NetworkImage(club.imagePath), fit: BoxFit.cover),
+              image: AssetImage(club.imagePath), fit: BoxFit.cover),
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -175,8 +181,8 @@ class CategoryElement extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 60,
-      height: 60,
+      width: 50,
+      height: 50,
       margin: const EdgeInsets.fromLTRB(0, 0, 10, 0),
       decoration: const BoxDecoration(
         color: Color.fromRGBO(127, 227, 240, 1),
@@ -221,25 +227,34 @@ class WorkoutPlan extends StatelessWidget {
               children: [
                 Text(exercise.name,
                     style: const TextStyle(
-                        fontSize: 20, fontWeight: FontWeight.w600)),
-                Container(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
-                  decoration: BoxDecoration(
-                    border: Border.all(),
-                    color: const Color.fromRGBO(23, 20, 51, 1),
-                    borderRadius: BorderRadius.circular(40),
-                  ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      const FaIcon(FontAwesomeIcons.play, size: 15, color: Colors.white),
-                      const SizedBox(width: 10),
-                      Text("${exercise.duration} min",
-                          style: const TextStyle(
-                              fontSize: 15, fontWeight: FontWeight.w700, color: Colors.white)),
-                    ],
+                        fontSize: 18, fontWeight: FontWeight.w600)),
+                GestureDetector(
+                  onTap: (){
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => ExerciseDetails(exercise: exercise,),
+                      ),
+                    );
+                  },
+                  child: Container(
+                    padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
+                    decoration: BoxDecoration(
+                      border: Border.all(),
+                      color: const Color.fromRGBO(23, 20, 51, 1),
+                      borderRadius: BorderRadius.circular(40),
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        const FaIcon(FontAwesomeIcons.play, size: 15, color: Colors.white),
+                        const SizedBox(width: 10),
+                        Text("${exercise.duration} min",
+                            style: const TextStyle(
+                                fontSize: 15, fontWeight: FontWeight.w700, color: Colors.white)),
+                      ],
+                    ),
                   ),
                 )
               ],
